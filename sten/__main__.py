@@ -96,6 +96,8 @@ def openasfile(event: tk.Event) -> Optional[str]:
         ) as err:
             retry = mb.askretrycancel(message=str(err))
             continue
+        finally:
+            picture.close()
 
         if mode not in MODES_PICTURE:
             retry = mb.askretrycancel(
