@@ -70,14 +70,11 @@ class Cipher(ABC):
         """Decrypt."""
 
 
-class NotACipher(Cipher):
+class NaC(Cipher):
     """Not a cipher."""
 
     name = ''
     code = ('%d', '%S')
-
-    def __init__(self, key: str, txt: str = '') -> None:
-        super().__init__(key, txt)
 
     @staticmethod
     def validate(action: str, data: str) -> bool:
@@ -281,7 +278,7 @@ class Vigenere(Cipher):
 
 
 ciphers = {
-    NotACipher.name: NotACipher,
+    NaC.name: NaC,
     Caesar.name: Caesar,
     Hill.name: Hill,
     Scytale.name: Scytale,

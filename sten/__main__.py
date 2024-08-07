@@ -368,7 +368,10 @@ def close() -> None:
 
 def manipulate(v_event: str) -> None:
     """Use a manipulation by triggering the given virtual event."""
-    widget = root.focus_get()
+    try:
+        widget = root.focus_get()
+    except KeyError:
+        return
 
     if not widget:
         return
@@ -563,7 +566,7 @@ sys.excepthook = exception
 #######################
 with suppress(AttributeError):
     ctypes.windll.shcore.SetProcessDpiAwareness(2)
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID('sten.3525')
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID('sten')
 
 ################
 # /|\ Root /|\ #
