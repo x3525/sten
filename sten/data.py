@@ -43,7 +43,7 @@ class Color(StrEnum):
 class FilePath(StrEnum):
     """File path enumeration."""
 
-    CONFIG = os.path.join(os.path.expanduser('~'), '.sten.json')
+    CONFIG = os.path.join(os.path.expanduser('~'), 'sten.json')
 
 
 class Hotkey(StrEnum):
