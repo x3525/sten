@@ -82,7 +82,7 @@ def get(event: tk.Event) -> Optional[str]:
         try:
             with Image.open(file) as image:
                 px = math.prod(size := image.size)
-                imgdata = image.getdata()
+                imgdata = image.get_flattened_data()
                 mode = image.mode
         except (
                 OSError, DecompressionBombError, DecompressionBombWarning
